@@ -8,8 +8,22 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-content">
+        <div>
+          <h1>Mergington High School</h1>
+          <h2>Extracurricular Activities</h2>
+        </div>
+        <details id="account-menu">
+          <summary aria-label="Teacher account menu" title="Teacher account">
+            <span aria-hidden="true">👤</span>
+          </summary>
+          <div class="account-menu-content">
+            <p id="account-status">Not signed in</p>
+            <button id="login-button" type="button">Teacher login</button>
+            <button id="logout-button" class="hidden" type="button">Log out</button>
+          </div>
+        </details>
+      </div>
     </header>
 
     <main>
@@ -23,6 +37,9 @@
 
       <section id="signup-container">
         <h3>Sign Up for an Activity</h3>
+        <p id="signup-notice">
+          Students can sign up here. Teacher login is required to unregister participants.
+        </p>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -40,6 +57,31 @@
         <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <form id="login-form">
+        <h3 id="login-title">Teacher login</h3>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input id="username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+        <div class="dialog-actions">
+          <button type="submit">Log in</button>
+          <button id="cancel-login" class="secondary-button" type="button">Cancel</button>
+        </div>
+        <p id="login-error" class="error hidden" role="alert"></p>
+      </form>
+    </dialog>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
